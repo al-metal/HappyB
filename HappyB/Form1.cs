@@ -35,5 +35,10 @@ namespace HappyB
                 notifyIcon1.Visible = true;
             }
         }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;           
+        }
     }
 }

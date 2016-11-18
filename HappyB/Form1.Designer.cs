@@ -50,6 +50,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "День рождения:";
             this.Deactivate += new System.EventHandler(this.Form1_Deactivate);
+            this.Shown += new System.EventHandler(this.Form1_Shown);
             this.ResumeLayout(false);
 
         }
