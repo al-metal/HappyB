@@ -17,16 +17,6 @@ namespace HappyB
             InitializeComponent();
         }
 
-        private void notifyIcon1_Click(object sender, EventArgs e)
-        {
-            if(this.WindowState == FormWindowState.Minimized)
-            {
-                this.WindowState = FormWindowState.Normal;
-                this.ShowInTaskbar = true;
-                notifyIcon1.Visible = false;
-            }
-        }
-
         private void Form1_Deactivate(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Minimized)
@@ -39,6 +29,27 @@ namespace HappyB
         private void Form1_Shown(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;           
+        }
+
+        private void notifyIcon1_DoubleClick(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.WindowState = FormWindowState.Normal;
+                this.ShowInTaskbar = true;
+                notifyIcon1.Visible = false;
+            }
+        }
+
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+            e.Cancel = true;           
         }
     }
 }
