@@ -19,6 +19,7 @@ namespace HappyB
         {
             InitializeComponent();
         }
+
         #region Обработка формы
         private void Form1_Deactivate(object sender, EventArgs e)
         {
@@ -57,12 +58,12 @@ namespace HappyB
 
         #endregion
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
             List<string> actionsShow = new List<string>();
 
             string[] actions = File.ReadAllLines("hb.txt", Encoding.GetEncoding(1251));
-            foreach(string str in actions)
+            foreach (string str in actions)
             {
                 string[] actionStr = str.Split(';');
                 string nameActions = actionStr[0];
@@ -70,7 +71,7 @@ namespace HappyB
                 if (dateActions.Remove(5) == date.Remove(5))
                     actionsShow.Add(str);
             }
-            if(actionsShow.Count != 0)
+            if (actionsShow.Count != 0)
             {
                 string reliseStr = "";
                 foreach (string str in actionsShow)
@@ -81,9 +82,8 @@ namespace HappyB
 
                     reliseStr += nameActions;
                 }
-                MessageBox.Show("Сегодня мероприятие у \n" + reliseStr);
+                lblResult.Text = "Завтра мероприятие у \n" + reliseStr + "\n";
             }
-                
         }
     }
 }
